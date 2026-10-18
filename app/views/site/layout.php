@@ -54,6 +54,9 @@ if ($socials) { $jsonLd['sameAs'] = array_values(array_column($socials, 'href'))
 </head>
 <body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
+<?php if (is_static_demo()): ?>
+<div class="demo-banner">Version de démonstration : contenus d'exemple. Le formulaire de contact et l'administration fonctionnent sur la version hébergée.</div>
+<?php endif; ?>
 
 <div class="topbar">
   <div class="container topbar__inner">

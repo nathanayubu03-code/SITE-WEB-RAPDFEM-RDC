@@ -347,3 +347,5 @@ section[id] { scroll-margin-top: 130px; }
   .page-header { background: none; color: #000; }
   .page-header h1 { color: #000; }
 }
+
+.demo-banner { background: #fff3d6; color: #6b4a00; text-align: center; font-size: .85rem; padding: .5rem 16px; border-bottom: 1px solid #f0d58c; }

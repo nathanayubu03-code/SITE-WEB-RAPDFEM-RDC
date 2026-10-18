@@ -45,9 +45,13 @@ Si l'assistant affiche « pdo_sqlite » en rouge, utiliser la base MySQL fournie
 
 Créer l'archive à partir du dépôt : `git archive --format=zip HEAD -o rapdfem-site.zip`
 
+## Démo sur GitHub Pages
+
+À chaque push, le workflow `.github/workflows/pages.yml` génère une version en pages fixes du site public (`bin/export-static.php`) et la publie sur https://nathanayubu03-code.github.io/SITE-WEB-RAPDFEM-RDC/. Activation unique : Settings > Pages > Source : « GitHub Actions ». Cette démo montre le design et les contenus de démarrage ; le formulaire de contact, les filtres et l'administration n'y fonctionnent pas.
+
 ## Déploiement automatique depuis GitHub
 
-Le fichier `.github/workflows/deploy.yml` envoie le site par FTP chez l'hébergeur à chaque modification poussée sur GitHub. Il suffit de créer une fois les secrets `FTP_SERVER`, `FTP_USERNAME` et `FTP_PASSWORD` (Settings > Secrets and variables > Actions) et, pour cPanel, la variable `FTP_SERVER_DIR` = `public_html/`. Les photos, PDF, la base et `app/config.php` ne sont pas dans le dépôt et ne sont donc jamais écrasés.
+Le fichier `.github/workflows/deploy.yml` envoie le site par FTP chez l'hébergeur à chaque modification poussée sur GitHub. Il suffit de créer la variable `FTP_ENABLED` = `true`, les secrets `FTP_SERVER`, `FTP_USERNAME` et `FTP_PASSWORD` (Settings > Secrets and variables > Actions) et, pour cPanel, la variable `FTP_SERVER_DIR` = `public_html/`. Les photos, PDF, la base et `app/config.php` ne sont pas dans le dépôt et ne sont donc jamais écrasés.
 
 ## Mise en ligne sur un hébergement cPanel
 

@@ -391,7 +391,7 @@ function send_security_headers(string $context = 'site', bool $recaptcha = false
 
 function install_lock_path(): string
 {
-    return STORAGE . '/installed.lock';
+    return (string) config('lock_file', STORAGE . '/installed.lock');
 }
 
 function is_installed(): bool
@@ -402,4 +402,10 @@ function is_installed(): bool
 function mark_installed(): void
 {
     file_put_contents(install_lock_path(), now() . "\n");
+}
+
+/** Version de démonstration en pages fixes (GitHub Pages) : formulaires et filtres masqués. */
+function is_static_demo(): bool
+{
+    return (bool) config('static_demo', false);
 }

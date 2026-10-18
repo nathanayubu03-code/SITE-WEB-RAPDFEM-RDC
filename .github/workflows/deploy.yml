@@ -6,7 +6,8 @@
 #   FTP_SERVER    ex. ftpupload.net (InfinityFree) ou ftp.votre-domaine.org
 #   FTP_USERNAME  identifiant FTP du panneau de l'hébergeur
 #   FTP_PASSWORD  mot de passe FTP
-# Variable facultative (onglet « Variables ») :
+# Variables (onglet « Variables ») :
+#   FTP_ENABLED     mettre « true » pour activer le déploiement
 #   FTP_SERVER_DIR  dossier de destination, par défaut htdocs/ (cPanel : public_html/)
 #
 # Les photos, PDF, la base de données et app/config.php ne sont jamais
@@ -25,6 +26,8 @@ concurrency:
 
 jobs:
   deploy:
+    # Ne tourne que si l'hébergement est configuré (évite un échec à chaque push).
+    if: vars.FTP_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Récupérer le code

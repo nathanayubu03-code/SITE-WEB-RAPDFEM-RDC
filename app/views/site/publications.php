@@ -2,6 +2,7 @@
 
 <section class="section">
   <div class="container">
+    <?php if (!is_static_demo()): ?>
     <form class="filters" method="get" action="<?= e(url('publications')) ?>" data-autosubmit>
       <label>
         <span>Catégorie</span>
@@ -23,6 +24,7 @@
       </label>
       <button class="btn btn--navy" type="submit">Filtrer</button>
     </form>
+    <?php endif; ?>
 
     <?php if ($publications): ?>
       <ul class="docs">

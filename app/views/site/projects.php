@@ -2,6 +2,7 @@
 
 <section class="section">
   <div class="container">
+    <?php if (!is_static_demo()): ?>
     <form class="filters" method="get" action="<?= e(url('projets')) ?>" data-autosubmit>
       <label>
         <span>Zone d'intervention</span>
@@ -24,6 +25,7 @@
       <button class="btn btn--navy" type="submit">Filtrer</button>
       <?php if ($zone || $status): ?><a class="filters__reset" href="<?= e(url('projets')) ?>">Réinitialiser</a><?php endif; ?>
     </form>
+    <?php endif; ?>
 
     <p class="results-count"><?= (int) $pager['total'] ?> projet<?= $pager['total'] > 1 ? 's' : '' ?></p>
 

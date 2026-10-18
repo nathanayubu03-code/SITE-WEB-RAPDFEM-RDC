@@ -7,7 +7,8 @@ define('STORAGE', ROOT . '/storage');
 define('PUBLIC_DIR', ROOT . '/public');
 define('UPLOADS', PUBLIC_DIR . '/uploads');
 
-$configFile = is_file(APP . '/config.php') ? APP . '/config.php' : APP . '/config.sample.php';
+// RAPDFEM_CONFIG permet d'utiliser une autre configuration (export de la démo statique).
+$configFile = getenv('RAPDFEM_CONFIG') ?: (is_file(APP . '/config.php') ? APP . '/config.php' : APP . '/config.sample.php');
 $GLOBALS['config'] = require $configFile;
 
 require APP . '/lib/helpers.php';

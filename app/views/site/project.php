@@ -32,7 +32,7 @@
     <aside class="detail__aside">
       <dl class="facts">
         <div><dt>Statut</dt><dd><span class="badge badge--inline badge--<?= e($project['status']) ?>"><?= e(PROJECT_STATUSES[$project['status']] ?? '') ?></span></dd></div>
-        <div><dt>Zone d'intervention</dt><dd><a href="<?= e(url('projets?zone=' . rawurlencode((string) $project['zone']))) ?>"><?= e($project['zone']) ?></a></dd></div>
+        <div><dt>Zone d'intervention</dt><dd><?php if (is_static_demo()): ?><?= e($project['zone']) ?><?php else: ?><a href="<?= e(url('projets?zone=' . rawurlencode((string) $project['zone']))) ?>"><?= e($project['zone']) ?></a><?php endif; ?></dd></div>
         <?php if ($project['domain']): ?><div><dt>Domaine</dt><dd><?= e($project['domain']) ?></dd></div><?php endif; ?>
         <?php if (project_period($project)): ?><div><dt>Période</dt><dd><?= e(project_period($project)) ?></dd></div><?php endif; ?>
         <?php if ($project['beneficiaries']): ?><div><dt>Bénéficiaires</dt><dd><?= e($project['beneficiaries']) ?></dd></div><?php endif; ?>

@@ -237,6 +237,10 @@ function page_partners(): void
 
 function page_contact(): void
 {
+    if (is_static_demo()) {
+        site_render('contact', ['values' => [], 'errors' => [], 'recaptcha' => false, 'meta_title' => 'Contact', 'active' => 'contact']);
+        return;
+    }
     $recaptcha = (string) config('recaptcha.site_key') !== '' && (string) config('recaptcha.secret_key') !== '';
     $errors = [];
     $values = ['name' => '', 'email' => '', 'phone' => '', 'organization' => '', 'subject' => '', 'message' => ''];
@@ -380,7 +384,7 @@ function visual(?string $image, string $alt, bool $thumb = true, string $class =
 
 function pager(array $p): string
 {
-    if ($p['pages'] <= 1) {
+    if ($p['pages'] <= 1 || is_static_demo()) {
         return '';
     }
     $html = '<nav class="pager" aria-label="Pagination">';

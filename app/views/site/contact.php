@@ -23,6 +23,13 @@
       <?php endif; ?>
     </div>
 
+    <?php if (is_static_demo()): ?>
+    <div class="form contact__form">
+      <h2>Formulaire de contact</h2>
+      <p>Sur la version hébergée du site, cette page contient un formulaire sécurisé. Les messages arrivent dans l'espace d'administration.</p>
+      <?php if (setting('email')): ?><a class="btn btn--green" href="mailto:<?= e(setting('email')) ?>">Écrire par e-mail</a><?php endif; ?>
+    </div>
+    <?php else: ?>
     <form class="form contact__form" method="post" action="<?= e(url('contact')) ?>" novalidate>
       <?= csrf_field() ?>
       <?php if (!empty($errors['form'])): ?><div class="alert alert--error" role="alert"><?= e($errors['form']) ?></div><?php endif; ?>
@@ -68,5 +75,6 @@
       <p class="form__note">Vos données servent uniquement à répondre à votre message. Elles ne sont jamais cédées à des tiers.</p>
       <button class="btn btn--green" type="submit">Envoyer le message</button>
     </form>
+    <?php endif; ?>
   </div>
 </section>
