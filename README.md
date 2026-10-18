@@ -45,6 +45,10 @@ Si l'assistant affiche « pdo_sqlite » en rouge, utiliser la base MySQL fournie
 
 Créer l'archive à partir du dépôt : `git archive --format=zip HEAD -o rapdfem-site.zip`
 
+## Déploiement automatique depuis GitHub
+
+Le fichier `.github/workflows/deploy.yml` envoie le site par FTP chez l'hébergeur à chaque modification poussée sur GitHub. Il suffit de créer une fois les secrets `FTP_SERVER`, `FTP_USERNAME` et `FTP_PASSWORD` (Settings > Secrets and variables > Actions) et, pour cPanel, la variable `FTP_SERVER_DIR` = `public_html/`. Les photos, PDF, la base et `app/config.php` ne sont pas dans le dépôt et ne sont donc jamais écrasés.
+
 ## Mise en ligne sur un hébergement cPanel
 
 1. Vérifier que l'hébergement fournit PHP 8.1 ou plus avec les extensions `pdo_sqlite` (ou `pdo_mysql`), `gd`, `fileinfo`, `mbstring` et `zip`.
