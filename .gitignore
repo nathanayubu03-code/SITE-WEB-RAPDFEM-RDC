@@ -1,0 +1,12 @@
+/app/config.php
+/storage/database/*
+!/storage/database/.gitkeep
+/storage/docs/*
+!/storage/docs/.gitkeep
+/storage/backups/*
+!/storage/backups/.gitkeep
+/public/uploads/*
+!/public/uploads/.htaccess
+!/public/uploads/.gitkeep
+.DS_Store
+*.log

@@ -1,0 +1,11 @@
+# Aucun script ne doit jamais s'exécuter dans le dossier des fichiers téléversés.
+Options -Indexes -ExecCGI
+<FilesMatch "\.(?i:php\d?|phtml|phar|pl|py|cgi|sh|asp|aspx|jsp|htaccess)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>

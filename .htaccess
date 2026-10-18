@@ -1,0 +1,16 @@
+# Hébergement mutualisé (cPanel) : si la racine web pointe sur ce dossier,
+# toutes les requêtes sont envoyées vers public/. Les dossiers app/, storage/
+# et bin/ ne sont jamais accessibles depuis le web.
+# Idéalement, faites pointer la racine du domaine directement sur public/.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|bin|storage|docs)(/|$) - [F,L]
+    RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+    Require all denied
+</IfModule>
+<FilesMatch "^\.|\.(md|sqlite|sql|zip|log)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes
