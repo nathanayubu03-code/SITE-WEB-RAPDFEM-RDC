@@ -162,3 +162,12 @@ code { background: #eef1f6; padding: .1rem .35rem; border-radius: 4px; font-size
 .auth__brand .sidebar__mark { background: linear-gradient(135deg, var(--navy) 0 50%, var(--green) 50% 100%); }
 .auth h1 { font-size: 1.3rem; }
 .auth__foot { margin: 1.25rem 0 0; font-size: .85rem; color: var(--muted); text-align: center; }
+
+.checks { list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: .85rem; }
+.checks li { padding: .3rem 0 .3rem 1.6rem; position: relative; }
+.checks li::before { position: absolute; left: 0; font-weight: 700; }
+.checks .is-ok::before { content: "\2713"; color: var(--green); }
+.checks .is-ko { color: var(--danger); font-weight: 600; }
+.checks .is-ko::before { content: "\2717"; }
+.checks .is-warn { color: #b54708; }
+.checks .is-warn::before { content: "!"; }

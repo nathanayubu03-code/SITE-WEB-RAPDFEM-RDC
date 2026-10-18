@@ -19,7 +19,11 @@ if (config('force_https') && !is_https()) {
 $path = current_path();
 
 try {
-    if ($path === 'admin' || str_starts_with($path, 'admin/')) {
+    // Tant que l'installation n'est pas faite, tout mène à l'assistant d'installation.
+    if (!is_installed()) {
+        require APP . '/controllers/install.php';
+        install_page($path);
+    } elseif ($path === 'admin' || str_starts_with($path, 'admin/')) {
         require APP . '/controllers/admin.php';
         admin_dispatch($path);
     } else {

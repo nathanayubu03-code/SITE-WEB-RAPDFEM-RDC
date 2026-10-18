@@ -10,3 +10,4 @@
 !/public/uploads/.gitkeep
 .DS_Store
 *.log
+/storage/installed.lock

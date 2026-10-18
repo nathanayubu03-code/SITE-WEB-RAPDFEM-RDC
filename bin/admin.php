@@ -99,6 +99,7 @@ switch ($command) {
             echo "\nCréation du premier compte administrateur.\n";
             create_user_interactive('admin');
         }
+        mark_installed();
         echo "\nInstallation terminée. Connectez-vous sur /admin.\n";
         break;
 

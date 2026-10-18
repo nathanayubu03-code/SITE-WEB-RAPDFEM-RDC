@@ -386,3 +386,20 @@ function send_security_headers(string $context = 'site', bool $recaptcha = false
         header('X-Robots-Tag: noindex, nofollow');
     }
 }
+
+/* ---------- Installation ---------- */
+
+function install_lock_path(): string
+{
+    return STORAGE . '/installed.lock';
+}
+
+function is_installed(): bool
+{
+    return is_file(install_lock_path());
+}
+
+function mark_installed(): void
+{
+    file_put_contents(install_lock_path(), now() . "\n");
+}
